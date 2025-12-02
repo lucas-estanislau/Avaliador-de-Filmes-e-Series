@@ -15,7 +15,7 @@ public class Filme extends Midia {
 	
 	@Override
 	public void exibir_informacoes() {
-		System.out.println("----------------------------");
+		System.out.println("-------------INFORMAÇÕES SOBRE O FILME---------------");
 		System.out.println("Filme: " + this.titulo);
 		System.out.println("Gênero: " + this.genero);
 		System.out.println("Sinopse: " + this.sinopse);
@@ -23,7 +23,7 @@ public class Filme extends Midia {
 		System.out.println("Data de lançamento: " + this.data_de_lancamento);
 		System.out.println("Diretor: " + this.diretor);
 		System.out.println("Duração: " + this.duracao);
-		System.out.println("----------------------------\n");
+		System.out.println("-----------------------------------------------------\n");
 		
 	}
 	
