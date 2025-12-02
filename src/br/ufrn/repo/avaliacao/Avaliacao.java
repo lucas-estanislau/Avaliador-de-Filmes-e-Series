@@ -3,13 +3,13 @@ package br.ufrn.repo.avaliacao;
 import java.time.LocalDate;
 import br.ufrn.repo.audiovisual.Midia;
 
-public class Avaliacao {
+public class Avaliacao implements Comparable<Avaliacao> {
 	protected Midia midia;
-	protected int nota;
+	protected Integer nota;
 	protected String comentario;
 	protected LocalDate data_da_avaliacao;
 	
-	public Avaliacao(Midia midia, int nota, String comentario, LocalDate data_da_avaliacao) {
+	public Avaliacao(Midia midia, Integer nota, String comentario, LocalDate data_da_avaliacao) {
 		this.midia = midia;
 		this.nota = nota;
 		this.comentario = comentario;
@@ -35,7 +35,28 @@ public class Avaliacao {
 	}
 	
 	public LocalDate get_data_da_avaliacao() {
-		return this.get_data_da_avaliacao();
+		return this.data_da_avaliacao;
+	}
+	
+	public void set_nota(int nota) {
+		this.nota = nota;
+	}
+	
+	public void set_comentario(String comentario) {
+		this.comentario = comentario;
+	}
+	
+	public void set_data_da_avaliacao(LocalDate data) {
+		this.data_da_avaliacao = data;
+	}
+	
+	//Método que compara dois objetos do tipo Avaliação de acordo com a nota.
+	@Override
+	public int compareTo(Avaliacao avaliacao2) {
+		return this.nota.compareTo(avaliacao2.get_nota());
+		//Retorna =>1 se this.nota > avaliacao2.nota
+		//Retorna 0 se this.nota == avaliacao2.nota
+		//Retorna <=-1 se this.nota < avaliacao2.nota
 	}
 	
 }
