@@ -12,14 +12,14 @@ public class Serie extends Midia {
 	
 	@Override
 	public void exibir_informacoes() {
-		System.out.println("----------------------------");
+		System.out.println("-------------INFORMAÇÕES SOBRE A SÉRIE---------------");
 		System.out.println("Série: " + this.titulo);
 		System.out.println("Gênero: " + this.genero);
 		System.out.println("Sinopse: " + this.sinopse);
 		System.out.println("Classificação indicativa: " + this.classificacao_indicativa);
 		System.out.println("Data de lançamento: " + this.data_de_lancamento);
 		System.out.println("Quantidade de episódios: " + this.quantidade_de_episodios);
-		System.out.println("----------------------------\n");
+		System.out.println("------------------------------------------------------\n");
 		
 	}
 	
