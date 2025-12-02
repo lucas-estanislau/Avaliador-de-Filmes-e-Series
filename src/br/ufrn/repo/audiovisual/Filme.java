@@ -16,7 +16,7 @@ public class Filme extends Midia {
 	@Override
 	public void exibir_informacoes() {
 		System.out.println("-------------INFORMAÇÕES SOBRE O FILME---------------");
-		System.out.println("Filme: " + this.titulo);
+		System.out.println("Título: " + this.titulo);
 		System.out.println("Gênero: " + this.genero);
 		System.out.println("Sinopse: " + this.sinopse);
 		System.out.println("Classificação indicativa: " + this.classificacao_indicativa);
