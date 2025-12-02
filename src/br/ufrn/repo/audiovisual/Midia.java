@@ -2,7 +2,8 @@ package br.ufrn.repo.audiovisual;
 
 import java.time.LocalDate;
 
-public abstract class Midia {
+
+public abstract class Midia implements Comparable<Midia> {
 	protected String titulo;
 	protected String genero;
 	protected String sinopse;
@@ -27,6 +28,16 @@ public abstract class Midia {
 	public String get_titulo() {
 		return this.titulo;
 	};
+	
+	/*Método que compara dois objetos do tipo Midia de acordo com a data de lançamento.
+	Assim, ajudará a ordenar em ordem crescente e decrescente a lista de mídias presente na classe Sistema */
+	@Override
+	public int compareTo(Midia midia2) {
+		return this.data_de_lancamento.compareTo(midia2.get_data_de_lancamento()); 
+		//Retorna valor positivo(=>1) se this.data_de_lancamento é mais nova
+		//Retorna 0 se this.data_de_lancamento tem data igual a midia2.data_de_lancamento
+		//Retorna valor negativo(<=-1) se this.data_de_lancamento é mais antiga
+	}
 	
 	
 }
