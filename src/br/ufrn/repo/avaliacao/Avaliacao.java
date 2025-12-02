@@ -33,4 +33,8 @@ public class Avaliacao {
 		return this.midia;
 	}
 	
+	public LocalDate get_data_da_avaliacao() {
+		return this.get_data_da_avaliacao();
+	}
+	
 }
