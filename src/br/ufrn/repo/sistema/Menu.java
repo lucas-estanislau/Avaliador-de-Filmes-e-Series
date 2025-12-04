@@ -42,7 +42,7 @@ public class Menu {
 
     private int lerOpcao() {
         try {
-            return sc.nextInt();
+            return Integer.parseInt(sc.nextLine());
         } catch (NumberFormatException e) {
             return -1;
         }
