@@ -1,7 +1,13 @@
 package br.ufrn.repo.avaliacao;
 
 import java.time.LocalDate;
+
+import br.ufrn.repo.annotations.FuncionamentoMetodo;
+import br.ufrn.repo.annotations.InfoAutor;
 import br.ufrn.repo.audiovisual.Midia;
+
+@InfoAutor(nome = "Bianca Jennifer, Isabele de Oliveira, Flávia Jamily, Juvam Rodrigues, Lucas Estanislau", data = "05/12/2025", 
+versaoProjeto = 1.0)
 
 public class Avaliacao implements Comparable<Avaliacao> {
 	protected Midia midia;
@@ -50,7 +56,7 @@ public class Avaliacao implements Comparable<Avaliacao> {
 		this.data_da_avaliacao = data;
 	}
 	
-	//Método que compara dois objetos do tipo Avaliação de acordo com a nota.
+	@FuncionamentoMetodo(funcionamento = "Método compara dois objetos do tipo Avaliação de acordo com a nota.")
 	@Override
 	public int compareTo(Avaliacao avaliacao2) {
 		return this.nota.compareTo(avaliacao2.get_nota());
