@@ -6,7 +6,7 @@ import br.ufrn.repo.annotations.FuncionamentoMetodo;
 import br.ufrn.repo.annotations.InfoAutor;
 import br.ufrn.repo.audiovisual.Midia;
 
-@InfoAutor(nome = "Bianca Jennifer, Isabele de Oliveira, Flávia Jamily, Juvam Rodrigues, Lucas Estanislau", data = "05/12/2025", 
+@InfoAutor(nome = "Bianca Jennifer, Isabele Ferreira, Flávia Jamily, Juvam Rodrigues, Lucas Estanislau", data = "05/12/2025",
 versaoProjeto = 1.0)
 
 public class Avaliacao implements Comparable<Avaliacao> {
