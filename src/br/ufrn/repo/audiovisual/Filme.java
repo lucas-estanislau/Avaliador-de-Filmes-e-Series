@@ -31,5 +31,9 @@ public class Filme extends Midia {
 	public String get_tipo() {
 		return "Filme";
 	}
-	
+
+	@Override
+	public String toString() {
+    return "Filme: " + titulo + " | " + genero + " | " + sinopse + " | " + classificacao_indicativa + " | " + data_de_lancamento + " | " + diretor + " | " + duracao;
+}
 }
