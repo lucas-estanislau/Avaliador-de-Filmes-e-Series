@@ -27,4 +27,9 @@ public class Serie extends Midia {
 	public String get_tipo() {
 		return "Série";
 	}
+
+	@Override
+	public String toString() {
+    return "Série: " + titulo + " | " + genero + " | " + sinopse + " | " + classificacao_indicativa + " | " + data_de_lancamento + " | " + quantidade_de_episodios;
+}
 }
