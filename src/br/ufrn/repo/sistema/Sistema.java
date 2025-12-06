@@ -1,6 +1,7 @@
 package br.ufrn.repo.sistema;
 
 import br.ufrn.repo.audiovisual.Midia;
+import br.ufrn.repo.audiovisual.Serie;
 import br.ufrn.repo.avaliacao.Avaliacao;
 import br.ufrn.repo.avltree.ArvoreAVL;
 
@@ -13,14 +14,26 @@ import java.util.Scanner;
 public class Sistema {
     private List<Midia> listaMidias;
     private ArvoreAVL<Avaliacao> avaliacoesUsuario;
+    private List<Avaliacao> filmesAvaliados;
+    private List<Avaliacao> seriesAvaliados;
 
     public Sistema() {
         this.listaMidias = new ArrayList<>();
         this.avaliacoesUsuario = new ArvoreAVL<>();
+        this.filmesAvaliados = listarFilmesAvaliados();
+        this.seriesAvaliados = listarSeriesAvaliados();
         carregarDados();
     }
     public List<Midia> getListaMidias() {
         return listaMidias;
+    }
+
+    public List<Avaliacao> getFilmesAvaliados() {
+        return listarFilmesAvaliados();
+    }
+
+    public List<Avaliacao> getSeriesAvaliados() {
+        return listarSeriesAvaliados();
     }
 
     private void carregarDados() {
@@ -42,6 +55,11 @@ public class Sistema {
 
     public void adicionarAvaliacao(Avaliacao novaAvaliacao){
         avaliacoesUsuario.inserir(novaAvaliacao);
+        if (novaAvaliacao.get_midia().get_tipo().equalsIgnoreCase("Série")) {
+            seriesAvaliados.add(novaAvaliacao);
+        } else{
+            filmesAvaliados.add(novaAvaliacao);
+        }
         System.out.println("Avaliação salva com sucesso!");
     }
 
@@ -54,11 +72,16 @@ public class Sistema {
         }return null;
     }
 
-    public boolean removerAvaliacao(Avaliacao avaliacaoRemover){
+    public boolean removerAvaliacao(Avaliacao avaliacaoRemover, int resultado){
         Avaliacao encontrada = avaliacoesUsuario.buscar(avaliacaoRemover);
         if (encontrada != null) {
             avaliacoesUsuario.remover(avaliacaoRemover);
             return true;
+        }
+        if (resultado == 2) {
+            seriesAvaliados.remove(avaliacaoRemover);
+        } else{
+            filmesAvaliados.remove(avaliacaoRemover);
         }
         return false;
     }
@@ -86,9 +109,9 @@ public class Sistema {
     public void imprimirFilmesAvaliados(){
         for (int i = 0; i < listarFilmesAvaliados().size(); i++) {
             Avaliacao av = listarFilmesAvaliados().get(i);
+            System.out.println("");
             System.out.println(i + 1 + ". " + av.get_midia().get_titulo() + " | Nota: " + av.get_nota());
             System.out.println("Comentário: " + av.get_comentario());
-            System.out.println("");
         }
     }
 
@@ -113,9 +136,9 @@ public class Sistema {
 
         for (int i = 0; i < listarSeriesAvaliados().size(); i++) {
             Avaliacao av = listarSeriesAvaliados().get(i);
+            System.out.println("");
             System.out.println(i + 1 + ". " + av.get_midia().get_titulo() + " | Nota: " + av.get_nota());
             System.out.println("Comentário: " + av.get_comentario());
-            System.out.println("");
         }
     }
 
@@ -205,7 +228,6 @@ public class Sistema {
         avEditar.set_data_da_avaliacao(LocalDate.now());
 
         avaliacoesUsuario.inserir(avEditar);
-        System.out.println("Avaliação editada");
         return true;
     }
 

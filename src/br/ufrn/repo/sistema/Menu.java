@@ -7,6 +7,8 @@ import br.ufrn.repo.annotations.FuncionamentoMetodo;
 import br.ufrn.repo.annotations.InfoAutor;
 import br.ufrn.repo.audiovisual.Midia;
 import br.ufrn.repo.avaliacao.Avaliacao;
+import br.ufrn.repo.avltree.ArvoreAVL;
+import br.ufrn.repo.avltree.No;
 
 public class Menu {
     private Scanner sc;
@@ -32,7 +34,7 @@ public class Menu {
     }
 
     private void menuAvaliacao() {
-        System.out.println("\n========== MENU ==========");
+        System.out.println("\n========== MENU ==========\n");
         System.out.println("1. Adicionar Avaliação");
         System.out.println("2. Visualizar Avaliação");
         System.out.println("3. Editar Avaliação");
@@ -42,7 +44,7 @@ public class Menu {
     }
 
     private void menuVisualizarAvaliacao() {
-        System.out.println("\n========== MENU ==========");
+        System.out.println("\n========== MENU ==========\n");
         System.out.println("1. Visualizar filmes avaliados");
         System.out.println("2. Visualizar séries avaliados");
         System.out.println("3. Voltar ao menu anterior");
@@ -87,9 +89,17 @@ public class Menu {
     private void switchCaseVisualizarAvaliacao(int opcao) {
         switch (opcao) {
             case 1:
+                if(sistema.getFilmesAvaliados().isEmpty()){
+                    System.out.println("\nNão há filmes avaliados.");
+                    break;
+                }
                 exibirFilmes();
                 break;
             case 2:
+                if(sistema.getSeriesAvaliados().isEmpty()){
+                    System.out.println("\nNão há séries avaliadas.");
+                    break;
+                }
                 exibirSeries();
                 break;
             case 3:
@@ -147,27 +157,80 @@ public class Menu {
 
         switch (opcao){
             case 1:
+                if(sistema.getFilmesAvaliados().isEmpty()){
+                    System.out.println("\nNão há filmes avaliados.");
+                    break;
+                }
                 sistema.imprimirFilmesAvaliados();
                 System.out.print("Digite qual item deseja editar: ");
                 int indiceFilme = Integer.parseInt(sc.nextLine()) - 1;
-                Integer novaNota = sistema.notaAvaliacao();
+                Midia filmeEncontrado = sistema.getFilmesAvaliados().get(indiceFilme).get_midia();
+
+                Integer novaNotaFilme = sistema.notaAvaliacao();
+                System.out.println("Digite seu comentário: ");
+                String novoComentarioFilme = sc.nextLine();
+                sistema.editarAvaliacao(filmeEncontrado.get_titulo(), novaNotaFilme, novoComentarioFilme);
+
                 break;
             case 2:
+                if(sistema.getSeriesAvaliados().isEmpty()){
+                    System.out.println("\nNão há séries avaliadas.");
+                    break;
+                }
                 sistema.imprimirSeriesAvaliados();
                 System.out.print("Digite qual item deseja editar: ");
-                int indiceSerie = Integer.parseInt(sc.nextLine());
+                int indiceSerie = Integer.parseInt(sc.nextLine()) - 1;
+                Midia serieEncontrada = sistema.getSeriesAvaliados().get(indiceSerie).get_midia();
+
+                Integer novaNotaSerie = sistema.notaAvaliacao();
+                System.out.println("Digite seu comentário: ");
+                String novoComentarioSerie = sc.nextLine();
+                sistema.editarAvaliacao(serieEncontrada.get_titulo(), novaNotaSerie, novoComentarioSerie);
+
                 break;
             case 3:
                 break;
             default:
-                System.out.println("Opção inválida! Tente novamente.");
+                System.out.println("\nOpção inválida! Tente novamente.");
         }
         return null;
     }
 
     private void deletarAvaliacao() {
-        System.out.println("========== DELETAR AVALIAÇÃO ==========");
-        // Implementação
+        System.out.println("\n========== DELETAR AVALIAÇÃO ==========\n");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1. Deletar Filmes");
+        System.out.println("2. Deletar Series");
+        System.out.println("3. Voltar ao menu anterior");
+        System.out.print("> Escolha uma opção: ");
+        int opcao = Integer.parseInt(sc.nextLine());
+
+        switch (opcao) {
+            case 1:
+                if(sistema.getFilmesAvaliados().isEmpty()){
+                    System.out.println("\nNão há filmes avaliados.");
+                    break;
+                }
+                sistema.imprimirFilmesAvaliados();
+                System.out.print("\nDigite qual item deseja deletar: ");
+                int indiceFilme = Integer.parseInt(sc.nextLine()) - 1;
+                sistema.removerAvaliacao(sistema.getFilmesAvaliados().get(indiceFilme), opcao);
+                break;
+            case 2:
+                if(sistema.getSeriesAvaliados().isEmpty()){
+                    System.out.println("\nNão há séries avaliadas.");
+                    break;
+                }
+                sistema.imprimirSeriesAvaliados();
+                System.out.print("\nDigite qual item deseja deletar: ");
+                int indiceSerie = Integer.parseInt(sc.nextLine()) - 1;
+                sistema.removerAvaliacao(sistema.getSeriesAvaliados().get(indiceSerie), opcao);
+                break;
+            case 3:
+                break;
+            default:
+                System.out.println("\nOpção inválida! Tente novamente.");
+        }
     }
 
     private void encerrar() {
@@ -177,12 +240,12 @@ public class Menu {
 
     // Métodos do menu de visualizar avaliações
     private void exibirFilmes() {
-        System.out.println("========== FILMES ==========");
+        System.out.println("\n========== FILMES ==========");
         sistema.imprimirFilmesAvaliados();
     }
 
     private void exibirSeries() {
-        System.out.println("========== SÉRIES ==========");
+        System.out.println("\n========== SÉRIES ==========");
         sistema.imprimirSeriesAvaliados();
     }
 
