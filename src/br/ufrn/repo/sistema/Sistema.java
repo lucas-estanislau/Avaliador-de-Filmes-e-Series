@@ -6,7 +6,7 @@ import br.ufrn.repo.audiovisual.Serie;
 import br.ufrn.repo.avaliacao.Avaliacao;
 import br.ufrn.repo.avltree.ArvoreAVL;
 
-import java.io.File; 
+import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,12 +27,11 @@ public class Sistema {
     private void carregarDados() {
 
         Leitor leitor = new Leitor();
-        leitor.LerArquivo("Avaliador-de-Filmes-e-Series/database/dados.txt");
+        leitor.LerArquivo("./database/dados.txt");
 
         listaMidias.addAll(leitor.getFilmes());
         listaMidias.addAll(leitor.getSeries());
-
-}
+    }
 
     public Midia buscarMidia(String nome) {
         for (Midia md : listaMidias) {
@@ -54,7 +53,7 @@ public class Sistema {
                 return av;
             }
         }return null;
-        }
+    }
 
     public boolean removerAvaliacao(Avaliacao avaliacaoRemover){
         Avaliacao encontrada = avaliacoesUsuario.buscar(avaliacaoRemover);
@@ -65,52 +64,53 @@ public class Sistema {
         return false;
     }
 
-   public List<Avaliacao> getTodasAvaliacoes(){
+    public List<Avaliacao> getTodasAvaliacoes(){
         return this.avaliacoesUsuario.emOrdem();
-   }
+    }
 
-  public List<Avaliacao> listarFilmesRecentes(){
-      List<Avaliacao> todas = getTodasAvaliacoes();
-      List<Avaliacao> soFilmes = new ArrayList<>();
+    public List<Avaliacao> listarFilmesRecentes(){
+        List<Avaliacao> todas = getTodasAvaliacoes();
+        List<Avaliacao> soFilmes = new ArrayList<>();
 
-      for (Avaliacao av : todas) {
-          if (av.get_midia().get_tipo().equalsIgnoreCase("Filme")) {
-              soFilmes.add(av);
-          }
-      }
-      if (!soFilmes.isEmpty()) {
-          mergeSort(soFilmes, 0, soFilmes.size() - 1);
-      }
-      int quantidade = Math.min(soFilmes.size(), 5);
-      return soFilmes.subList(0, quantidade);
-  }
+        for (Avaliacao av : todas) {
+            if (av.get_midia().get_tipo().equalsIgnoreCase("Filme")) {
+                soFilmes.add(av);
+            }
+        }
+        if (!soFilmes.isEmpty()) {
+            mergeSort(soFilmes, 0, soFilmes.size() - 1);
+        }
+        int quantidade = Math.min(soFilmes.size(), 5);
+        return soFilmes.subList(0, quantidade);
+    }
 
-   public List<Avaliacao> listarSeriesRecentes(){
-       List<Avaliacao> todas = getTodasAvaliacoes();
-       List<Avaliacao> soSeries = new ArrayList<>();
+    public List<Avaliacao> listarSeriesRecentes(){
+        List<Avaliacao> todas = getTodasAvaliacoes();
+        List<Avaliacao> soSeries = new ArrayList<>();
 
-       for (Avaliacao av : todas) {
-           if (av.get_midia().get_tipo().equalsIgnoreCase("Série")) {
-               soSeries.add(av);
-           }
-       }
-       if (!soSeries.isEmpty()) {
-           mergeSort(soSeries, 0, soSeries.size() - 1);
-       }
-       int quantidade = Math.min(soSeries.size(), 5);
-       return soSeries.subList(0, quantidade);
-   }
+        for (Avaliacao av : todas) {
+            if (av.get_midia().get_tipo().equalsIgnoreCase("Série")) {
+                soSeries.add(av);
+            }
+        }
+        if (!soSeries.isEmpty()) {
+            mergeSort(soSeries, 0, soSeries.size() - 1);
+        }
+        int quantidade = Math.min(soSeries.size(), 5);
+        return soSeries.subList(0, quantidade);
+    }
 
-   public List<Avaliacao> listarSeriesAvaliados(){
-       List<Avaliacao> todas = getTodasAvaliacoes();
-       List<Avaliacao> soSeries = new ArrayList<>();
+    public List<Avaliacao> listarSeriesAvaliados(){
+        List<Avaliacao> todas = getTodasAvaliacoes();
+        List<Avaliacao> soSeries = new ArrayList<>();
 
-       for (Avaliacao av : todas) {
-           if (av.get_midia().get_tipo().equalsIgnoreCase("Série")) {
-               soSeries.add(av);
-           }
-       } return soSeries;
-   }
+        for (Avaliacao av : todas) {
+            if (av.get_midia().get_tipo().equalsIgnoreCase("Série")) {
+                soSeries.add(av);
+                System.out.println(av);
+            }
+        } return soSeries;
+    }
     public List<Avaliacao> listarFilmesAvaliados(){
         List<Avaliacao> todas = getTodasAvaliacoes();
         List<Avaliacao> soFilmes = new ArrayList<>();
@@ -118,6 +118,7 @@ public class Sistema {
         for (Avaliacao av : todas) {
             if (av.get_midia().get_tipo().equalsIgnoreCase("Filme")) {
                 soFilmes.add(av);
+                System.out.println(av);
             }
         } return soFilmes;
     }
@@ -131,64 +132,70 @@ public class Sistema {
             merge(lista, inicio, meio, fim);
         }
     }
-public void merge(List<Avaliacao> lista, int inicio, int meio, int fim){
-    int n1 = meio - inicio + 1;
-    int n2 = fim - meio;
 
-    List<Avaliacao> esquerda = new ArrayList<>();
-    List<Avaliacao> direita = new ArrayList<>();
-    for (int i = 0; i < n1; i++) {
-        esquerda.add(lista.get(inicio + i));
-    }
-    for (int j = 0; j < n2; j++) {
-        direita.add(lista.get(meio + 1 + j));
-    }
+    public void merge(List<Avaliacao> lista, int inicio, int meio, int fim){
+        int n1 = meio - inicio + 1;
+        int n2 = fim - meio;
 
-    int i =0;
-    int j = 0;
-    int k = inicio;
-
-    while(i<n1 && j< n2){
-        Avaliacao avEsquerda = esquerda.get(i);
-        Avaliacao avDireita = direita.get(j);
-
-        if (!avEsquerda.get_data_da_avaliacao().isBefore(avDireita.get_data_da_avaliacao())) {
-            lista.set(k, avEsquerda);
-            i++;
-        } else {
-            lista.set(k, avDireita);
-            j++;
+        List<Avaliacao> esquerda = new ArrayList<>();
+        List<Avaliacao> direita = new ArrayList<>();
+        for (int i = 0; i < n1; i++) {
+            esquerda.add(lista.get(inicio + i));
         }
-        k++;
-    }
-    while (i < n1) {
-        lista.set(k, esquerda.get(i));
-        i++;
-        k++;
+        for (int j = 0; j < n2; j++) {
+            direita.add(lista.get(meio + 1 + j));
+        }
+
+        int i =0;
+        int j = 0;
+        int k = inicio;
+
+        while(i<n1 && j< n2){
+            Avaliacao avEsquerda = esquerda.get(i);
+            Avaliacao avDireita = direita.get(j);
+
+            if (!avEsquerda.get_data_da_avaliacao().isBefore(avDireita.get_data_da_avaliacao())) {
+                lista.set(k, avEsquerda);
+                i++;
+            } else {
+                lista.set(k, avDireita);
+                j++;
+            }
+            k++;
+        }
+        while (i < n1) {
+            lista.set(k, esquerda.get(i));
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            lista.set(k, direita.get(j));
+            j++;
+            k++;
+        }
     }
 
-    while (j < n2) {
-        lista.set(k, direita.get(j));
-        j++;
-        k++;
-    }
-}
-
-public boolean editarAvaliacao(String tituloMidia, int novaNota, String novoComentario){
+    public boolean editarAvaliacao(String tituloMidia, int novaNota, String novoComentario){
         Avaliacao avEditar = buscarAvalicao(tituloMidia);
 
         if (avEditar == null){
             return false;
         }
         avaliacoesUsuario.remover(avEditar);
-    avEditar.set_nota(novaNota);
-    avEditar.set_comentario(novoComentario);
-    avEditar.set_data_da_avaliacao(LocalDate.now());
+        avEditar.set_nota(novaNota);
+        avEditar.set_comentario(novoComentario);
+        avEditar.set_data_da_avaliacao(LocalDate.now());
 
-    avaliacoesUsuario.inserir(avEditar);
-    System.out.println("Avaliação editada");
-    return true;
-}
-}
+        avaliacoesUsuario.inserir(avEditar);
+        System.out.println("Avaliação editada");
+        return true;
+    }
 
+    public void imprimirTitulos() {
+        for (Midia md : listaMidias) {
+            System.out.println(md.get_titulo());
+        }
+    }
+}
 
