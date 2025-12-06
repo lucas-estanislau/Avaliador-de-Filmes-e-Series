@@ -27,7 +27,7 @@ public class Sistema {
     private void carregarDados() {
 
         Leitor leitor = new Leitor();
-        leitor.LerArquivo("Avaliador-de-Filmes-e-Series/sr/database/dados.txt");
+        leitor.LerArquivo("Avaliador-de-Filmes-e-Series/database/dados.txt");
 
         listaMidias.addAll(leitor.getFilmes());
         listaMidias.addAll(leitor.getSeries());
