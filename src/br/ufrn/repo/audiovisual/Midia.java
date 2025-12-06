@@ -2,12 +2,14 @@ package br.ufrn.repo.audiovisual;
 
 import java.time.LocalDate;
 
+import br.ufrn.repo.annotations.FuncionamentoClasse;
 import br.ufrn.repo.annotations.FuncionamentoMetodo;
 import br.ufrn.repo.annotations.InfoAutor;
 
 @InfoAutor(nome = "Bianca Jennifer, Isabele Ferreira, Flávia Jamily, Juvam Rodrigues, Lucas Estanislau", data = "05/12/2025",
 versaoProjeto = 1.0)
 
+@FuncionamentoClasse(funcionamento="Classe Mãe.")
 public abstract class Midia implements Comparable<Midia> {
 	protected String titulo;
 	protected String genero;
