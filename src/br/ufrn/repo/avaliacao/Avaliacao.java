@@ -6,13 +6,15 @@ import br.ufrn.repo.annotations.FuncionamentoMetodo;
 import br.ufrn.repo.annotations.InfoAutor;
 import br.ufrn.repo.audiovisual.Midia;
 
-@InfoAutor(nome = "Bianca Jennifer, Isabele de Oliveira, Flávia Jamily, Juvam Rodrigues, Lucas Estanislau", data = "05/12/2025", 
+@InfoAutor(nome = "Bianca Jennifer, Isabele Ferreira, Flávia Jamily, Juvam Rodrigues, Lucas Estanislau", data = "05/12/2025",
 versaoProjeto = 1.0)
 
 public class Avaliacao implements Comparable<Avaliacao> {
 	protected Midia midia;
 	protected Integer nota;
-	protected String comentario;
+
+
+    protected String comentario;
 	protected LocalDate data_da_avaliacao;
 	
 	public Avaliacao(Midia midia, Integer nota, String comentario, LocalDate data_da_avaliacao) {
@@ -55,14 +57,22 @@ public class Avaliacao implements Comparable<Avaliacao> {
 	public void set_data_da_avaliacao(LocalDate data) {
 		this.data_da_avaliacao = data;
 	}
-	
-	@FuncionamentoMetodo(funcionamento = "Método compara dois objetos do tipo Avaliação de acordo com a nota.")
+
+
+
+    @FuncionamentoMetodo(funcionamento = "Método compara dois objetos do tipo Avaliação de acordo com a nota.")
 	@Override
 	public int compareTo(Avaliacao avaliacao2) {
-		return this.nota.compareTo(avaliacao2.get_nota());
-		//Retorna =>1 se this.nota > avaliacao2.nota
-		//Retorna 0 se this.nota == avaliacao2.nota
-		//Retorna <=-1 se this.nota < avaliacao2.nota
+        int comparacaoPorNota = this.nota.compareTo(avaliacao2.get_nota());
+        if (comparacaoPorNota != 0) {
+            return comparacaoPorNota;
+        }
+        return this.midia.get_titulo().compareTo(avaliacao2.get_midia().get_titulo());
+    }
+    @Override
+    public String toString() {
+        return "Mídia: " + this.midia.get_titulo() + " | Nota: " + this.nota + " | Data: " + this.data_da_avaliacao + " | Comentário: " + this.comentario;
+    }
 	}
 	
-}
+
