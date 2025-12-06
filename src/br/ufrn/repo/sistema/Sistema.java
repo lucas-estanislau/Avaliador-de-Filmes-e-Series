@@ -1,15 +1,14 @@
 package br.ufrn.repo.sistema;
 
-import br.ufrn.repo.audiovisual.Filme;
 import br.ufrn.repo.audiovisual.Midia;
-import br.ufrn.repo.audiovisual.Serie;
 import br.ufrn.repo.avaliacao.Avaliacao;
 import br.ufrn.repo.avltree.ArvoreAVL;
 
-import java.io.File;
+import javax.management.openmbean.TabularDataSupport;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Sistema {
     private List<Midia> listaMidias;
@@ -84,6 +83,15 @@ public class Sistema {
         return soFilmes.subList(0, quantidade);
     }
 
+    public void imprimirFilmesAvaliados(){
+        for (int i = 0; i < listarFilmesAvaliados().size(); i++) {
+            Avaliacao av = listarFilmesAvaliados().get(i);
+            System.out.println(i + 1 + ". " + av.get_midia().get_titulo() + " | Nota: " + av.get_nota());
+            System.out.println("Comentário: " + av.get_comentario());
+            System.out.println("");
+        }
+    }
+
     public List<Avaliacao> listarSeriesRecentes(){
         List<Avaliacao> todas = getTodasAvaliacoes();
         List<Avaliacao> soSeries = new ArrayList<>();
@@ -100,6 +108,17 @@ public class Sistema {
         return soSeries.subList(0, quantidade);
     }
 
+    public void imprimirSeriesAvaliados(){
+        List<Avaliacao> seriesAvaliados = listarSeriesAvaliados();
+
+        for (int i = 0; i < listarSeriesAvaliados().size(); i++) {
+            Avaliacao av = listarSeriesAvaliados().get(i);
+            System.out.println(i + 1 + ". " + av.get_midia().get_titulo() + " | Nota: " + av.get_nota());
+            System.out.println("Comentário: " + av.get_comentario());
+            System.out.println("");
+        }
+    }
+
     public List<Avaliacao> listarSeriesAvaliados(){
         List<Avaliacao> todas = getTodasAvaliacoes();
         List<Avaliacao> soSeries = new ArrayList<>();
@@ -107,7 +126,6 @@ public class Sistema {
         for (Avaliacao av : todas) {
             if (av.get_midia().get_tipo().equalsIgnoreCase("Série")) {
                 soSeries.add(av);
-                System.out.println(av);
             }
         } return soSeries;
     }
@@ -118,7 +136,6 @@ public class Sistema {
         for (Avaliacao av : todas) {
             if (av.get_midia().get_tipo().equalsIgnoreCase("Filme")) {
                 soFilmes.add(av);
-                System.out.println(av);
             }
         } return soFilmes;
     }
@@ -197,5 +214,31 @@ public class Sistema {
             System.out.println(md.get_titulo());
         }
     }
+
+    public Integer notaAvaliacao() {
+        Integer nota = -1;
+        Scanner sc = new Scanner(System.in);
+
+        do {
+            System.out.print("Digite uma nota (0-10): ");
+
+            try {
+                String entrada = sc.nextLine().trim();
+                nota = Integer.parseInt(entrada);
+
+                if (nota < 0 || nota > 10) { // A nota deve ser entre 0 e 10
+                    System.out.println("Erro: A nota deve estar entre 0 e 10. Tente novamente.");
+                    nota = -1; // Força continuar loop
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("Erro: Digite apenas números inteiros. Tente novamente.");
+            }
+
+        } while (nota == -1);
+
+        return nota;
+    }
 }
+
 

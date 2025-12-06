@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33d2a7d6-fecd-4a36-bdb5-349e00a59a59" name="Changes" comment="" />
+    <list default="true" id="33d2a7d6-fecd-4a36-bdb5-349e00a59a59" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/ufrn/repo/avaliacao/Avaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrn/repo/avaliacao/Avaliacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/ufrn/repo/sistema/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrn/repo/sistema/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/ufrn/repo/sistema/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrn/repo/sistema/Sistema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,22 +24,25 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "lucas-estanislau"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lucas-estanislau&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/lucas-estanislau/Avaliador-de-Filmes-e-Series.git",
-    "accountId": "b647176b-8146-4bd0-9cbb-ae02b66f8b07"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lucas-estanislau/Avaliador-de-Filmes-e-Series.git&quot;,
+    &quot;accountId&quot;: &quot;b647176b-8146-4bd0-9cbb-ae02b66f8b07&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="36QkhB8QslmGjfM0YfrY0VyzYAH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,6 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -57,6 +67,15 @@
       <option name="presentableId" value="Default" />
       <updated>1764946302482</updated>
     </task>
+    <task id="LOCAL-00001">
+      <option name="closed" value="true" />
+      <created>1765030349406</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1765030349406</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
 </project>

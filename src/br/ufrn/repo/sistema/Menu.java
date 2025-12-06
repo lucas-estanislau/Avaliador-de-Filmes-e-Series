@@ -102,8 +102,7 @@ public class Menu {
 
     // Métodos do menu de avaliação
     private void adicionarAvaliacao() {
-        System.out.println("\n========== ADICIONAR AVALIAÇÃO ==========");
-        // Adicionar o metodo de adicionar avaliação
+        System.out.println("\n========== ADICIONAR AVALIAÇÃO ==========\n");
         Scanner sc = new Scanner(System.in);
 
         System.out.print("> Qual filme/série você quer avaliar? ");
@@ -111,39 +110,21 @@ public class Menu {
 
         Midia midiaEncontrada = sistema.buscarMidia(midia);
         System.out.println("");
-        System.out.println(midiaEncontrada);
-        System.out.print("\nDeseja avaliar " + midiaEncontrada.get_titulo() + " (s/n)? ");
+        System.out.println(midiaEncontrada); // Mostra as informações da mídia
+        System.out.print("\nDeseja avaliar " + midiaEncontrada.get_titulo() + " (s/n)? "); // Confirmação
         String opcao = sc.nextLine();
 
         switch (opcao) {
             case "s":
-                Integer nota = -1;
-
-                do {
-                    System.out.print("Digite uma nota (0-10): ");
-
-                    try {
-                        String entrada = sc.nextLine().trim();
-                        nota = Integer.parseInt(entrada);
-
-                        if (nota < 0 || nota > 10) {
-                            System.out.println("Erro: A nota deve estar entre 0 e 10. Tente novamente.");
-                            nota = -1; // Força continuar loop
-                        }
-
-                    } catch (NumberFormatException e) {
-                        System.out.println("Erro: Digite apenas números inteiros. Tente novamente.");
-                    }
-
-                } while (nota == -1);
+                Integer nota = sistema.notaAvaliacao();
 
                 System.out.println("Digite seu comentário: ");
                 String comentario = sc.nextLine();
 
-                LocalDate data = LocalDate.now();
+                LocalDate data = LocalDate.now(); // Pega a data atual
 
-                Avaliacao novaAvaliacao = new Avaliacao(midiaEncontrada, nota, comentario, data);
-                sistema.adicionarAvaliacao(novaAvaliacao);
+                Avaliacao novaAvaliacao = new Avaliacao(midiaEncontrada, nota, comentario, data); // Cria a avaliação com os parametros
+                sistema.adicionarAvaliacao(novaAvaliacao); // Adiciona a avaliação na árvore
                 break;
 
             case "n":
@@ -152,15 +133,36 @@ public class Menu {
             default:
                 System.out.println("Opção inválida! Tente novamente.");
         }
-
-
-
-
     }
 
-    private void editarAvaliacao() {
-        System.out.println("========== EDITAR AVALIAÇÃO ==========");
-        // Implementação
+    private Avaliacao editarAvaliacao() {
+        System.out.println("\n========== EDITAR AVALIAÇÃO ==========\n");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1. Editar Filmes");
+        System.out.println("2. Editar Series");
+        System.out.println("3. Voltar ao menu anterior");
+        System.out.print("> Escolha uma opção: ");
+        int opcao = Integer.parseInt(sc.nextLine());
+
+        switch (opcao){
+            case 1:
+                sistema.imprimirFilmesAvaliados();
+                System.out.print("Digite qual item deseja editar: ");
+                int indiceFilme = Integer.parseInt(sc.nextLine()) - 1;
+                Integer novaNota = sistema.notaAvaliacao();
+                break;
+            case 2:
+                sistema.imprimirSeriesAvaliados();
+                System.out.print("Digite qual item deseja editar: ");
+                int indiceSerie = Integer.parseInt(sc.nextLine());
+                break;
+            case 3:
+                break;
+            default:
+                System.out.println("Opção inválida! Tente novamente.");
+        }
+        return null;
     }
 
     private void deletarAvaliacao() {
@@ -176,11 +178,12 @@ public class Menu {
     // Métodos do menu de visualizar avaliações
     private void exibirFilmes() {
         System.out.println("========== FILMES ==========");
-        sistema.listarFilmesAvaliados();
+        sistema.imprimirFilmesAvaliados();
     }
 
     private void exibirSeries() {
         System.out.println("========== SÉRIES ==========");
+        sistema.imprimirSeriesAvaliados();
     }
 
     @FuncionamentoMetodo(funcionamento="Ler os elementos da anotação InfoAutor via reflexão e imprime-os.")
