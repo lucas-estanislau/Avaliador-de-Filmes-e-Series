@@ -161,6 +161,14 @@ public class ArvoreAVL <T extends Comparable<T>> implements Tree<T>{
         return atual;
     }
 
+    public void imprimirTree(No no){
+        if(no!=null){
+            imprimirTree(no.getEsquerdo());
+            System.out.println(no.getValor());
+            imprimirTree(no.getDireito());
+        }
+    }
+
     @Override
     public void inserir(T valor) {
         this.raiz = inserirRecursivo(this.raiz, valor);
@@ -198,4 +206,5 @@ public class ArvoreAVL <T extends Comparable<T>> implements Tree<T>{
     public int getTamanho() {
         return this.tamanho;
     }
+
 }

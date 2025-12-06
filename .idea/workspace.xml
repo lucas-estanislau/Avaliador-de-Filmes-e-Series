@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="33d2a7d6-fecd-4a36-bdb5-349e00a59a59" name="Changes" comment="Visualizar Avalaiação&#10;Editar Avaliação incompleto">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/ufrn/repo/avltree/ArvoreAVL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrn/repo/avltree/ArvoreAVL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/ufrn/repo/sistema/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrn/repo/sistema/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/br/ufrn/repo/sistema/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/br/ufrn/repo/sistema/Sistema.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Lucas" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lucas-estanislau&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lucas-estanislau/Avaliador-de-Filmes-e-Series.git&quot;,
+    &quot;accountId&quot;: &quot;b647176b-8146-4bd0-9cbb-ae02b66f8b07&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="36QkhB8QslmGjfM0YfrY0VyzYAH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Lucas",
+    "kotlin-language-version-configured": "true",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="33d2a7d6-fecd-4a36-bdb5-349e00a59a59" name="Changes" comment="" />
+      <created>1764946302482</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764946302482</updated>
+    </task>
+    <task id="LOCAL-00001">
+      <option name="closed" value="true" />
+      <created>1765030349406</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1765030349406</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Visualizar Avalaiação&#10;Editar Avaliação incompleto">
+      <option name="closed" value="true" />
+      <created>1765039657547</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1765039657547</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Visualizar Avalaiação&#10;Editar Avaliação incompleto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Visualizar Avalaiação&#10;Editar Avaliação incompleto" />
+  </component>
+</project>
