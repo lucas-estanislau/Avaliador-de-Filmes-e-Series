@@ -2,6 +2,9 @@ package br.ufrn.repo.audiovisual;
 
 import java.time.LocalDate;
 
+import br.ufrn.repo.annotations.FuncionamentoClasse;
+
+@FuncionamentoClasse(funcionamento="Classe Filha de Midia/ seria um Model.")
 public class Filme extends Midia {
 	protected String diretor;
 	protected String duracao;

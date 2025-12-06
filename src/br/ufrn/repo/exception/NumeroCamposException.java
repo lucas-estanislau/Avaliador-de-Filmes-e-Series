@@ -1,8 +1,14 @@
 package br.ufrn.repo.exception;
 
-//excecao especifica para quantidade de campos insuficientes em filmes ou series 
+import br.ufrn.repo.annotations.FuncionamentoClasse;
+
+@FuncionamentoClasse(funcionamento="Classe que é uma exceção específica para quantidade de campos insuficientes em filmes ou séries.")
+ 
 public class NumeroCamposException extends Exception {
-    public NumeroCamposException(String mensagem) {
+ 
+	private static final long serialVersionUID = 1L;
+
+	public NumeroCamposException(String mensagem) {
         super(mensagem);
     }
 }
