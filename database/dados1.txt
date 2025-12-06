@@ -1,0 +1,30 @@
+FILME|O Poderoso Chefão|Crime|A história da família Corleone.|18|1972-03-24|Francis Ford Coppola|175
+SERIE|Game of Thrones|Fantasia|Nobreza luta pelo trono.|16|2011-04-17|73
+FILME|Titanic|Romance|Amor durante o naufrágio.|12|1997-12-19|James Cameron|195
+SERIE|Breaking Bad|Crime|Professor vira traficante.|18|2008-01-20|62
+FILME|Jurassic Park|Aventura|Dinossauros clonados.|12|1993-06-11|Steven Spielberg|127
+SERIE|Stranger Things|Ficção|Crianças e mistérios.|14|2016-07-15|34
+FILME|Matrix|Ficção|Hacker descobre a realidade.|14|1999-03-31|Lana Wachowski|136
+SERIE|The Crown|Drama|Vida da Rainha Elizabeth II.|14|2016-11-04|60
+FILME|A Origem|Ficção|Invasão de sonhos.|14|2010-07-16|Christopher Nolan|148
+SERIE|The Mandalorian|Ficção|Caçador de recompensas.|12|2019-11-12|24
+FILME|Forrest Gump|Drama|Contador de histórias.|12|1994-07-06|Robert Zemeckis|142
+SERIE|The Witcher|Fantasia|Caçador de monstros.|16|2019-12-20|24
+FILME|Gladiador|Ação|Vingança em Roma.|16|2000-05-05|Ridley Scott|155
+SERIE|Sherlock|Mistério|Detetive em Londres.|14|2010-07-25|13
+FILME|O Senhor dos Anéis|Fantasia|Destruir o anel.|12|2001-12-19|Peter Jackson|178
+SERIE|Friends|Comédia|Amigos em NY.|12|1994-09-22|236
+FILME|O Rei Leão|Animação|Simba e o reino.|10|1994-06-15|Roger Allers|88
+SERIE|House of Cards|Drama|Política em Washington.|16|2013-02-01|73
+FILME|Avatar|Ficção|Pandora e humanos.|12|2009-12-18|James Cameron|162
+SERIE|Black Mirror|Ficção|Tecnologia distópica.|16|2011-12-04|27
+FILME|O Hobbit|Fantasia|Jornada de Bilbo.|12|2012-12-14|Peter Jackson|169
+SERIE|Vikings|Ação|Saga de Ragnar.|16|2013-03-03|89
+FILME|Homem-Aranha|Animação|Multiverso.|10|2018-12-14|Peter Ramsey|117
+SERIE|Money Heist|Crime|Assalto a casa da moeda.|16|2017-05-02|41
+FILME|Interstellar|Ficção|Viagem espacial.|12|2014-11-07|Christopher Nolan|169
+SERIE|The Boys|Ação|Heróis corruptos.|16|2019-07-26|24
+FILME|A Bela e a Fera|Fantasia|Romance Disney.|10|1991-11-22|Gary Trousdale|84
+SERIE|Dexter|Crime|Serial killer forense.|18|2006-10-01|96
+FILME|O Silêncio dos Inocentes|Thriller|FBI e Hannibal.|18|1991-02-14|Jonathan Demme|118
+SERIE|The Umbrella Academy|Fantasia|Família de heróis.|14|2019-02-15|30

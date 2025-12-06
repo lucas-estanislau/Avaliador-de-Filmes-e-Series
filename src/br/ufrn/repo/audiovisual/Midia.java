@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import br.ufrn.repo.annotations.FuncionamentoMetodo;
 import br.ufrn.repo.annotations.InfoAutor;
 
-@InfoAutor(nome = "Bianca Jennifer, Isabele de Oliveira, Flávia Jamily, Juvam Rodrigues, Lucas Estanislau", data = "05/12/2025",
+@InfoAutor(nome = "Bianca Jennifer, Isabele Ferreira, Flávia Jamily, Juvam Rodrigues, Lucas Estanislau", data = "05/12/2025",
 versaoProjeto = 1.0)
 
 public abstract class Midia implements Comparable<Midia> {
