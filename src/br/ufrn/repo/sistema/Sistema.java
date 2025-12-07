@@ -65,7 +65,6 @@ public class Sistema {
 		} else {
 			filmesAvaliados.add(novaAvaliacao);
 		}
-		System.out.println("Avaliação salva com sucesso!");
 	}
 
 	public Avaliacao buscarAvalicao(String tituloMidia) {
@@ -112,6 +111,12 @@ public class Sistema {
 		return soFilmes.subList(0, quantidade);
 	}
 
+	public void imprimirFilmesAvaliadosRecentemente() {
+		List<Avaliacao> filmesRecentes = listarFilmesRecentes();
+		for(Avaliacao filme: filmesRecentes) {
+			System.out.println(filme);
+		}
+	}
 	public void imprimirFilmesAvaliados() {
 		for (int i = 0; i < listarFilmesAvaliados().size(); i++) {
 			Avaliacao av = listarFilmesAvaliados().get(i);
@@ -136,7 +141,13 @@ public class Sistema {
 		int quantidade = Math.min(soSeries.size(), 5);
 		return soSeries.subList(0, quantidade);
 	}
-
+	
+	public void imprimirSeriesAvaliadosRecentemente() {
+		List<Avaliacao> seriesRecentes = listarSeriesRecentes();
+		for(Avaliacao serie: seriesRecentes) {
+			System.out.println(serie);
+		}
+	}
 	public void imprimirSeriesAvaliados() {
 		for (int i = 0; i < listarSeriesAvaliados().size(); i++) {
 			Avaliacao av = listarSeriesAvaliados().get(i);
