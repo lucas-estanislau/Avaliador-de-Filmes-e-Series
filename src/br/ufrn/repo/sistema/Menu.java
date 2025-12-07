@@ -13,12 +13,14 @@ import br.ufrn.repo.avaliacao.Avaliacao;
 public class Menu {
 	private Scanner sc;
 	private boolean verificadorAvaliacao;
+	private boolean verificadorVisualizacao;
 	private Sistema sistema;
 
 	public Menu() {
 		lerAnotacaoInfoAutor();
 		this.sc = new Scanner(System.in);
 		this.verificadorAvaliacao = true;
+		this.verificadorVisualizacao = false;
 		this.sistema = new Sistema();
 	}
 
@@ -67,26 +69,31 @@ public class Menu {
 
 	private void switchCaseAvaliacao(int opcao) {
 		switch (opcao) {
-		case 1:
+		case 1: // Adicionar Avaliação
 			adicionarAvaliacao();
 			break;
-		case 2:
-			menuOpcoesVisualizarAvaliacao();
-			int opcaoVisualizacao = lerOpcao();
-			switch (opcaoVisualizacao) {
-			case 1:
-				switchVisualizarAvaliacoesMaisRecentes();
+		case 2: // Visualizar Avaliações
+            verificadorVisualizacao = true;
+            while (verificadorVisualizacao) {
+                menuOpcoesVisualizarAvaliacao();
+                int opcaoVisualizacao = lerOpcao();
+                switch (opcaoVisualizacao) {
+                    case 1:
+                        switchVisualizarAvaliacoesMaisRecentes();
 
-				break;
-			case 2:
-				switchVisualizarTodasAvaliacoes();
+                        break;
+                    case 2:
+                        switchVisualizarTodasAvaliacoes();
 
-				break;
-			case 3:
-				break;
-			default:
-				System.out.println("Erro: opção inválida.");
-			}
+                        break;
+                    case 3:
+                        verificadorVisualizacao = false;
+                        break;
+                    default:
+                        System.out.println("Erro: opção inválida.");
+                }
+
+            }
 
 			break;
 		case 3:
@@ -96,7 +103,8 @@ public class Menu {
 			deletarAvaliacao();
 			break;
 		case 0:
-			encerrar();
+            System.out.println("Encerrando programa...");
+			verificadorAvaliacao = false;
 			break;
 		default:
 			System.out.println("Opção inválida! Tente novamente.");
@@ -158,7 +166,7 @@ public class Menu {
 				break;
 			}
 			sistema.imprimirFilmesAvaliados();
-			System.out.print("Digite qual item deseja editar: ");
+			System.out.print("\nDigite qual item deseja editar: ");
 			try {
 				int indiceFilme = lerOpcao() - 1;
 				Midia filmeEncontrado = sistema.getFilmesAvaliados().get(indiceFilme).get_midia();
@@ -242,11 +250,6 @@ public class Menu {
 		default:
 			System.out.println("\nOpção inválida! Tente novamente.");
 		}
-	}
-
-	private void encerrar() {
-		System.out.println("Encerrando programa...");
-		verificadorAvaliacao = false;
 	}
 
 	@FuncionamentoMetodo(funcionamento = "Métodos do menu de visualizar avaliações.")
