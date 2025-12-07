@@ -3,6 +3,10 @@ package br.ufrn.repo.avltree;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufrn.repo.annotations.FuncionamentoClasse;
+
+@FuncionamentoClasse(funcionamento="Classe responsável por ter todas as avaliações de filmes e séries.")
+
 public class ArvoreAVL <T extends Comparable<T>> implements Tree<T>{
     private No<T> raiz;
     private int tamanho = 0;
@@ -161,6 +165,14 @@ public class ArvoreAVL <T extends Comparable<T>> implements Tree<T>{
         return atual;
     }
 
+    public void imprimirTree(No<T> no){
+        if(no!=null){
+            imprimirTree(no.getEsquerdo());
+            System.out.println(no.getValor());
+            imprimirTree(no.getDireito());
+        }
+    }
+
     @Override
     public void inserir(T valor) {
         this.raiz = inserirRecursivo(this.raiz, valor);
@@ -198,4 +210,5 @@ public class ArvoreAVL <T extends Comparable<T>> implements Tree<T>{
     public int getTamanho() {
         return this.tamanho;
     }
+
 }

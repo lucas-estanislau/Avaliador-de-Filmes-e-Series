@@ -45,6 +45,10 @@ public class Avaliacao implements Comparable<Avaliacao> {
 	public LocalDate get_data_da_avaliacao() {
 		return this.data_da_avaliacao;
 	}
+
+    public String get_comentario() {
+        return this.comentario;
+    }
 	
 	public void set_nota(int nota) {
 		this.nota = nota;
