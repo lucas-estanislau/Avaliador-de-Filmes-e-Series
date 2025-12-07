@@ -2,6 +2,9 @@ package br.ufrn.repo.audiovisual;
 
 import java.time.LocalDate;
 
+import br.ufrn.repo.annotations.FuncionamentoClasse;
+
+@FuncionamentoClasse(funcionamento="Classe Filha de Midia/ seria um Model.")
 public class Serie extends Midia {
 	protected int quantidade_de_episodios;
 	

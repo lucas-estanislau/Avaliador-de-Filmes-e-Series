@@ -1,5 +1,8 @@
 package br.ufrn.repo.avltree;
 
+import br.ufrn.repo.annotations.FuncionamentoClasse;
+
+@FuncionamentoClasse(funcionamento="Classe responsável por ser os nós/avaliações da árvore.")
 public class No <T extends Comparable<T>>{
     private T valor;
     private No<T> esquerdo;
